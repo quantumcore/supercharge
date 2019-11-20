@@ -2,4 +2,4 @@ geoip2
 colorama
 configparser
 plyer
-tqdm
+flask
