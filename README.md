@@ -92,7 +92,7 @@ make
 make linux
 ```
 
-This will generate the Supercharge agent named ``WindowsAV.exe`` with a Windows ICON.
+This will generate the Supercharge agent named ``WindowsAV.exe`` with an ICON.
 
 
 #### Server Side Settings
