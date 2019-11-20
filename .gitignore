@@ -4,4 +4,4 @@
 *.pyc
 __pycache__/*
 .vscode/*
-*.ini
+
