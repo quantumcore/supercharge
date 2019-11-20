@@ -136,6 +136,11 @@ If you would like to help me! Please do so! Also, I do not use branches because 
 - [ ] A New Logo. I made [this](https://github.com/quantumkernel/supercharge/blob/master/img/logo.png) . Ain't my desiging skills sick!?
 - [ ] Windows 10 detected as Windows 8 bug.
 - [ ] Keylogger 
+
+#### TODO :
+- Remove Password Hardcoding in Agent. 
+- Update Cryptography.
+
 ### Contact 
 - [Discord](https://discordapp.com/invite/8snh7nx)
 - [Website](https://quantumcore.github.io)
