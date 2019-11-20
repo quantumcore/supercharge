@@ -9,6 +9,7 @@ Project supercharge is a Remote Access Agent. The supercharge agent is mainly cr
 - [Bugs](#Bugs)
 - [Contributing](#Contribute)
 - [Contact](#Contact)
+- [Screenshot](#Screenshot)
 ---
 
 ### Project Supercharge Features
@@ -144,3 +145,6 @@ If you would like to help me! Please do so! Also, I do not use branches because 
 ### Contact 
 - [Discord](https://discordapp.com/invite/8snh7nx)
 - [Website](https://quantumcore.github.io)
+
+#### Screenshot
+![sample](https://github.com/quantumcore/supercharge/blob/master/img/sample.png)
