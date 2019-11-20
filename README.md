@@ -1,15 +1,14 @@
-<<<<<<< HEAD
 ## Project Supercharge
-Project supercharge is a Private Covert Remote Access Agent. The supercharge agent is mainly created to provide remote access to a Computer with Stealth and Persistence. 
+Project supercharge is a Remote Access Agent. The supercharge agent is mainly created to provide remote access to a Computer with Stealth and Persistence. 
 
 ---
 
 - [Features](#project-supercharge-features)
-- [Installing](#installing)
+- [Installing](#Installing)
+- [Deployment](#Deployment)
 - [Bugs](#Bugs)
 - [Contributing](#Contribute)
 - [Contact](#Contact)
-- [Deployment](#Deployment)
 ---
 
 ### Project Supercharge Features
@@ -45,7 +44,7 @@ $ cd supercharge
 $ sudo ./install.sh
 ```
 
-###### Note : It can run on Windows.
+###### Note : It can run on Windows, But I recommened a Linux Based OS.
 
 
 ---
@@ -135,11 +134,8 @@ If you would like to help me! Please do so! Also, I do not use branches because 
 
 #### Help Wanted : 
 - [ ] A New Logo. I made [this](https://github.com/quantumkernel/supercharge/blob/master/img/logo.png) . Ain't my desiging skills sick!?
-
+- [ ] Windows 10 detected as Windows 8 bug.
+- [ ] Keylogger 
 ### Contact 
 - [Discord](https://discordapp.com/invite/8snh7nx)
-- [Website](https://quantumkernel.github.io)
-=======
-# supercharge
-Fully Undetectable Remote Access Agent.
->>>>>>> de1513bff003dc15f2de2c512b289920bffedaa1
+- [Website](https://quantumcore.github.io)
