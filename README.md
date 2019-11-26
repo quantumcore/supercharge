@@ -40,7 +40,7 @@ Browse the system, Execute files | -
 - Python 3
 
 ```bash
-$ git clone https://github.com/quantumkernel/supercharge
+$ git clone https://github.com/quantumcore/supercharge
 $ cd supercharge
 $ sudo ./install.sh
 ```
