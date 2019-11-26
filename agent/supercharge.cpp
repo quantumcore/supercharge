@@ -126,55 +126,77 @@ std::string supercharge::ramsize(int mode)
 	}
 }
 
-
+// Thanks to @dannyvsdev / https://github.com/quantumcore/supercharge/issues/1
 std::string supercharge::OS()
 {
-	std::string sysinfo;
-	OSVERSIONINFO osinfo;
-	ZeroMemory(&osinfo, sizeof(OSVERSIONINFO));
-	osinfo.dwOSVersionInfoSize = sizeof(osinfo);
-	GetVersionEx(&osinfo);
-	
-	switch (osinfo.dwMajorVersion)
+	std::string os;
+	std::ostringstream ds;
+	int ret = 0.0;
+	NTSTATUS(WINAPI *RtlGetVersion)(LPOSVERSIONINFOEXW);
+	OSVERSIONINFOEXW osInfo;
+
+	*reinterpret_cast<FARPROC*>(&RtlGetVersion) = GetProcAddress(GetModuleHandleA("ntdll"), "RtlGetVersion");
+
+	if (nullptr != RtlGetVersion)
 	{
-	case 5:
-		if (osinfo.dwMinorVersion == 0)
-		{
-			sysinfo = "Windows 2000 ";
-		}
-		else if (osinfo.dwMinorVersion == 1)
-		{
-			sysinfo = "Windows XP ";
-		}
-		else if (osinfo.dwMinorVersion == 2)
-		{
-			sysinfo = "Windows XP ";
-		}
-		break;
-	case 6:
-		if (osinfo.dwMinorVersion == 3)
-		{
-			sysinfo = "Windows 8.1 ";
-		}	
-		else if (osinfo.dwMinorVersion == 2)
-		{
-			sysinfo = "Windows 8 ";
-		}
-		else if (osinfo.dwMinorVersion == 1)
-		{
-			sysinfo = "Windows 7 ";
-		}
-		else {
-			sysinfo = "Windows Vista ";
-		}
-		break;
-	default:
-		sysinfo = "Unknown OS ";
-		break;
+		osInfo.dwOSVersionInfoSize = sizeof osInfo;
+		RtlGetVersion(&osInfo);
+		ret = osInfo.dwMajorVersion;
 	}
 
-
-	return sysinfo;
+	int mw = osInfo.dwMinorVersion;
+	if(ret == 5){
+		switch (mw)
+		{
+		case 0:
+			// 5.0 = Windows 2000
+			os = "Windows 2000";
+			break;
+		case 1:
+			// 5.1 = Windows XP
+			os = "Windows XP";
+			break;
+		
+		case 2:
+			os = "Windows XP Professional";
+			break;
+		
+		default:
+			ds.str(""); ds.clear(); 
+			ds << "Windows " << mw;
+			os = ds.str();
+			break;
+		}
+	} else if(ret == 6){
+		switch (mw)
+		{
+		case 0:
+			os = "Windows Vista";
+			break;
+		case 1:
+			os = "Windows 7";
+			break;
+		case 2:
+			os = "Windows 8";
+			break;
+		case 3:
+			os = "Windows 8.1";
+			break;
+		
+		default:
+			ds.str(""); ds.clear(); 
+			ds << "Windows " << mw;
+			os = ds.str();
+			break;
+		}
+	} else if(ret == 10){
+			os = "Windows 10";
+	} else {
+		ds.str(""); ds.clear(); 
+		ds << "Windows " << mw;
+		os = ds.str();
+	}
+	return os;
 }
 
 
