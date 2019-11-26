@@ -80,7 +80,7 @@ def WebApp():
             forbot = request.form['forbot']
             print(forbot)
             ReadInformation("bots/"+forbot)
-            if(BOTOSONLY(forbot) == "Windows 8"):
+            if(BOTOSONLY(forbot) == "Windows 8" or BOTOSONLY(forbot) == "Windows 10"):
                 return render_template("botinfo_winten.html", info=webbotinfo, botname=WBOTNAMEONLY(forbot))
             elif(BOTOSONLY(forbot) == "Windows 7"):
                 return render_template("botinfo_winseven.html", info=webbotinfo, botname=WBOTNAMEONLY(forbot))
