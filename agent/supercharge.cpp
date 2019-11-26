@@ -149,11 +149,9 @@ std::string supercharge::OS()
 		switch (mw)
 		{
 		case 0:
-			// 5.0 = Windows 2000
 			os = "Windows 2000";
 			break;
 		case 1:
-			// 5.1 = Windows XP
 			os = "Windows XP";
 			break;
 		
