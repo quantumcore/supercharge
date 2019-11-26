@@ -8,6 +8,7 @@ Project supercharge is a Remote Access Agent. The supercharge agent is mainly cr
 - [Deployment](#Deployment)
 - [Bugs](#Bugs)
 - [Contributing](#Contribute)
+- [Contributors](#Contributors)
 - [Contact](#Contact)
 - [Screenshot](#Screenshot)
 ---
