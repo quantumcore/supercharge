@@ -377,7 +377,7 @@ def console():
                     + help - View more detailed commands.
 
 
-                    Project Supercharge | Private Covert Remote Access Agent. 
+                    Project Supercharge | FUD Remote Access Agent. 
                     Created by : Quantumcore (Fahad)
                     Github : https://github.com/quantumcore 
                     Official Repository : https://github.com/quantumcore/supercharge
