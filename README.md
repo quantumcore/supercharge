@@ -127,13 +127,13 @@ Open file ``supercharge.ini`` and you can just simply change the values.
 - Remove wchar_t functions (Old code) :heavy_check_mark:
 - File Execution bug. :heavy_check_mark:
 - File Download byte bug. :heavy_check_mark:
-- Windows 10 detected as Windows 8. (Thanks to [@dannyvsdev](https://github.com/dennyvsdev))
+- Windows 10 detected as Windows 8. (Thanks to [@dannyvsdev](https://github.com/dennyvsdev)) :heavy_check_mark:
 
 ### Contribute
 If you would like to help me! Please do so! Also, I do not use branches because I always end up pushing to master. So, I always create another repositroy (private) for developement. So if you would like to help me, [Contact](#Contact) me.
 
 ### Contributors 
-- None.
+- [dannyvsdev](https://github.com/dennyvsdev)
 
 #### Help Wanted : 
 - [ ] A New Logo. I made [this](https://github.com/quantumkernel/supercharge/blob/master/img/logo.png) . Ain't my desiging skills sick!?
