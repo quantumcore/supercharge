@@ -24,8 +24,6 @@ from kernel.banner import pbanner
 
 from .notif import notify
 
-from tqdm import tqdm
-
 
 colorama.init()
 BUFFER = 1024 
