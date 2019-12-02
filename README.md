@@ -8,7 +8,7 @@ Project supercharge is a Remote Access Agent. The supercharge agent is mainly cr
 - [Deployment](#Deployment)
 - [Bugs](#Bugs)
 - [Contributing](#Contribute)
-- [Contributors](#Contributors)
+- [Contributors](#Thanks)
 - [Contact](#Contact)
 - [Screenshot](#Screenshot)
 ---
@@ -132,7 +132,7 @@ Open file ``supercharge.ini`` and you can just simply change the values.
 ### Contribute
 If you would like to help me! Please do so! Also, I do not use branches because I always end up pushing to master. So, I always create another repositroy (private) for developement. So if you would like to help me, [Contact](#Contact) me.
 
-### Contributors 
+### Thank you 
 - [dannyvsdev](https://github.com/dennyvsdev)
 - [underg33k](https://github.com/underg33k)
 
