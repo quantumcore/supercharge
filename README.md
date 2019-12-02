@@ -134,6 +134,7 @@ If you would like to help me! Please do so! Also, I do not use branches because 
 
 ### Contributors 
 - [dannyvsdev](https://github.com/dennyvsdev)
+- [underg33k](https://github.com/underg33k)
 
 #### Help Wanted : 
 - [ ] A New Logo. I made [this](https://github.com/quantumkernel/supercharge/blob/master/img/logo.png) . Ain't my desiging skills sick!?
