@@ -22,6 +22,7 @@
 #include <sstream>
 #include <cstdio>
 
+#define NTSTATUS LONG
 #define BUFFER 1024
 #define INTERVAL 5000
 #define MAX_PASSWORD 100
