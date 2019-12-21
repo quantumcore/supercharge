@@ -129,17 +129,16 @@ Open file ``supercharge.ini`` and you can just simply change the values.
 - File Download byte bug. :heavy_check_mark:
 - Windows 10 detected as Windows 8. (Thanks to [@dannyvsdev](https://github.com/dennyvsdev)) :heavy_check_mark:
 
+**NOT Fixed**
+- WAN IP Bug    
+    - If the client system does not have active internet connection it will not connect. This will happen on WAN. However, ]
+    if the connection is on LAN, It will connect and then trigger an Error as the WAN IP would not be returned to Server.
 ### Contribute
 If you would like to help me! Please do so! Also, I do not use branches because I always end up pushing to master. So, I always create another repositroy (private) for developement. So if you would like to help me, [Contact](#Contact) me.
 
 ### Thank you 
 - [dannyvsdev](https://github.com/dennyvsdev)
 - [underg33k](https://github.com/underg33k)
-
-#### Help Wanted : 
-- [ ] A New Logo. I made [this](https://github.com/quantumkernel/supercharge/blob/master/img/logo.png) . Ain't my desiging skills sick!?
-- [ ] Windows 10 detected as Windows 8 bug.
-- [ ] Keylogger 
 
 #### TODO :
 - Remove Password Hardcoding in Agent. 
