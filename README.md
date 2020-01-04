@@ -46,7 +46,7 @@ $ cd supercharge
 $ sudo ./install.sh
 ```
 
-### Note : It can run on Windows, But I recommened a Linux Based OS.
+### Note : It can run on Windows, But I recommened a Linux Based OS. (Server side)
 
 
 ---
