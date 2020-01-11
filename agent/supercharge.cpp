@@ -225,7 +225,10 @@ void supercharge::Wanip()
 
 		InternetCloseHandle(hFile);
 		InternetCloseHandle(hInternet);
-	} 
+	} else {
+		memset(wanip, '\0', 500);
+		snprintf(wanip, 500, "No Internet Detected");
+	}
 	
 }
 

