@@ -128,11 +128,8 @@ Open file ``supercharge.ini`` and you can just simply change the values.
 - File Execution bug. :heavy_check_mark:
 - File Download byte bug. :heavy_check_mark:
 - Windows 10 detected as Windows 8. (Thanks to [@dannyvsdev](https://github.com/dennyvsdev)) :heavy_check_mark:
+- WAN IP Bug.
 
-**NOT Fixed**
-- WAN IP Bug    
-    - If the client system does not have active internet connection it will not connect. This will happen on WAN. However,
-    if the connection is on LAN, It will connect and then trigger an Error as the WAN IP would not be returned to Server.
 ### Contribute
 If you would like to help me! Please do so! Also, I do not use branches because I always end up pushing to master. So, I always create another repositroy (private) for developement. So if you would like to help me, [Contact](#Contact) me.
 
