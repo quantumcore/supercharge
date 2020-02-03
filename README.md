@@ -1,7 +1,8 @@
 ## Project Supercharge
-
+---
 ### NOTE
-Do not by any means upload the Agent to online Scanners. Why? Because even if one of the engines finds the file suspicious, the service shares the result among all AV companies, allowing cyber-security firms insight on new types of malware that their engines are not currently detecting. [Read here](https://www.bleepingcomputer.com/news/security/75-percent-of-malware-uploaded-on-no-distribute-scanners-is-unknown-to-researchers/)
+Do not by any means upload the Agent to online Scanners. Why? Because even if one of the engines finds the file suspicious, the service shares the result among all AV companies, allowing cyber-security firms insight on new types of malware that their engines are not currently detecting. [Read here](https://www.bleepingcomputer.com/news/security/75-percent-of-malware-uploaded-on-no-distribute-scanners-is-unknown-to-researchers/).
+---
 
 Project supercharge is a Remote Access Agent. The supercharge agent is mainly created to provide remote access to a Computer with Stealth and Persistence. 
 
@@ -137,13 +138,14 @@ Open file ``supercharge.ini`` and you can just simply change the values.
 ### Contribute
 If you would like to help me! Please do so! Also, I do not use branches because I always end up pushing to master. So, I always create another repositroy (private) for developement. So if you would like to help me, [Contact](#Contact) me.
 
-### Thank you 
+### Thank you for bug reporting
 - [dannyvsdev](https://github.com/dennyvsdev)
 - [underg33k](https://github.com/underg33k)
 
 #### TODO :
-- Remove Password Hardcoding in Agent. 
-- Update Cryptography.
+- File sorting in the remote file listing.
+- Imrpovement of the file upload function.
+- Console Updates. 
 
 ### Contact 
 - [Discord](https://discordapp.com/invite/8snh7nx)
