@@ -1,7 +1,9 @@
 ## Project Supercharge
----
+
+
 ### NOTE
 Do not by any means upload the Agent to online Scanners. Why? Because even if one of the engines finds the file suspicious, the service shares the result among all AV companies, allowing cyber-security firms insight on new types of malware that their engines are not currently detecting. [Read here](https://www.bleepingcomputer.com/news/security/75-percent-of-malware-uploaded-on-no-distribute-scanners-is-unknown-to-researchers/).
+
 ---
 
 Project supercharge is a Remote Access Agent. The supercharge agent is mainly created to provide remote access to a Computer with Stealth and Persistence. 
