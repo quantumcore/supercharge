@@ -34,9 +34,8 @@ Encrypted Connection | Your communication is encrypted with a key of your choice
 Password Protection | Even though it's encrypted, It will authenticate with a Password hardcoded in the Agent.
 Offline Bot Database | supercharge comes with an Offline Web App you can use to easily view all Agents that ever Connected and when.
 Fully Undetectable | The Agent is fully undetectable. 
-Java check | Check if Java is installed or not (For MISC payload purposes)
-Download and Upload files | -
-Browse the system, Execute files | -
+File Upload/Download | Download and upload files.
+Explore | Move around and view files.
 
 
 ---
