@@ -145,9 +145,9 @@ If you would like to help me! Please do so! Also, I do not use branches because 
 - [underg33k](https://github.com/underg33k)
 
 #### TODO :
-- File sorting in the remote file listing.
-- Imrpovement of the file upload function.
-- Console Updates. 
+- File sorting in the remote file listing. :heavy_check_mark:
+- Imrpovement of the file upload function. :heavy_check_mark:
+- Console Updates. :heavy_check_mark:
 
 ### Contact 
 - [Discord](https://discordapp.com/invite/8snh7nx)
