@@ -68,7 +68,9 @@ def run_session(sockfd,mode, input_string, cid_int, infoFor):
 
             elif(sinput.startswith("download")):
                 try:
-                    todownload = param[1]
+                    elif(sinput.startswith("download")):
+                try:
+                    todownload = input("[+] Enter filename to Download : ")
                     askd = input("-> Confirm download file '{file}' .. ? (y/N): ".format(file=todownload))
                     askd = askd.lower()
                     if(askd == "y"):
