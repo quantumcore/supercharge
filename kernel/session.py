@@ -58,9 +58,7 @@ def run_session(sockfd,mode, input_string, cid_int, infoFor):
                 
             elif(sinput == "ls"):
                 SendData("ls")
-            elif(sinput == "exit"):
-                browse = False
-                print("[+] FSConsole exited.")
+
             elif(sinput == "exec"):
                 filename = input("-> Enter filename to Execute : ")
                 if(len(filename) > 0):

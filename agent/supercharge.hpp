@@ -20,6 +20,7 @@
 #include <tchar.h>
 #include <cstring>
 #include <sstream>
+#include <iostream>
 #include <cstdio>
 
 #define NTSTATUS LONG
